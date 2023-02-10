@@ -3,7 +3,6 @@ import Card from '@/Components/Card';
 import { Head } from '@inertiajs/react';
 
 export default function Content({auth, errors, articles}) {
-    console.log(articles)
     return (
         <GlosarioLayout
             auth={auth}
@@ -12,7 +11,7 @@ export default function Content({auth, errors, articles}) {
         >
             <Head title="Dashboard" />
 
-            <div className="py-12">
+            <div className="py-12 overflow-y-scroll  max-h-screen">
                {
                 articles.map((article) =>(
                     <Card key={article.id} article={article}/>

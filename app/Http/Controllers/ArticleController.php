@@ -40,8 +40,11 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:191',
             'description' => 'required|string|max:191',
+            'author' => Auth::user()->name,
         ]);
-        Article::create($validated);
+        $article = Article::create($validated);
+        $article->author = Auth::user()->name;
+        $article->save(); 
         return Redirect::route('dashboard');
     }
 }

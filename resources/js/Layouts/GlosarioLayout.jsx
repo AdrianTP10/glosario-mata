@@ -9,24 +9,20 @@ export default function GlosarioLayout({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     
     return (
-        <div className="min-h-screen bg-gray-300">
+        <div className="max-h-screen bg-gray-300 overflow-y-hidden">
             
 
             <nav className="bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
-                        <div className="flex">
-                            <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
-                                </Link>
-                            </div>
+                        <div className="shrink-0 flex items-center">
+                            <Link href="/">
+                                <h1 className='text-black font-mono font-semibold text-2xl'>Seguridad de la Información</h1>
+                            </Link>
+                        </div>
+                            
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
-                                </NavLink>
-                                {auth.user ? (
+                        {auth.user ? (
                                     <Link href={route('article.create')} className="text-sm text-gray-700 dark:text-gray-500 underline">
                                         Agregar concepto
                                     </Link>
@@ -44,11 +40,9 @@ export default function GlosarioLayout({ auth, header, children }) {
                                         </Link>
                                     </>
                                  )}
-                            </div>
-                        </div>
 
 
-                        {/* Dropdown menu  */}
+                        {/* Dropdown menu sm */}
                         <div className="hidden sm:flex sm:items-center sm:ml-6">
                             <div className="ml-3 relative">
                                 <Dropdown>
@@ -85,7 +79,8 @@ export default function GlosarioLayout({ auth, header, children }) {
                                 </Dropdown>
                             </div>
                         </div>
-
+                        
+                        {/* Dropdown menu base */}
                         <div className="-mr-2 flex items-center sm:hidden">
                             <button
                                 onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
@@ -140,19 +135,15 @@ export default function GlosarioLayout({ auth, header, children }) {
             </nav>
 
             
-            <header className="flex flex-row bg-white shadow justify-between content-center">
-                <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
-                <form  
-                    
-           
-                >
-                <input
-                    className="p-3 border-gray-400 rounded-lg"
-                    type="text"
-                    placeholder="Buscar concepto"
-                    
-                />
-                 </form>
+            <header className="flex flex-row bg-white shadow justify-center content-center">
+                <form>
+                    <input
+                        className="p-3 border-gray-400 rounded-lg"
+                        type="text"
+                        placeholder="Buscar concepto"
+                        
+                    />
+                </form>
             </header>
            
 
