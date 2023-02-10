@@ -9,51 +9,33 @@ export default function GlosarioLayout({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     
     return (
-        <div className="max-h-screen bg-gray-300 overflow-y-hidden">
+        <div className="max-h-screen bg-gray-300 overflow-hidden">
             
 
             <nav className="bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
-                        <div className="shrink-0 flex items-center">
-                            <Link href="/">
-                                <h1 className='text-black font-mono font-semibold text-2xl'>Seguridad de la Información</h1>
-                            </Link>
+                <div className="px-2 sm:px-4 lg:px-8 w-full">
+                    <div className="flex  h-16  justify-between items-center">
+                        <div className="flex">
+                            <div className="shrink-0 flex items-center">
+                                <Link href="/">
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-700" />
+                                </Link>
+                                <h1 className='p-3 text-base sm:text-2xl font-mono font-medium '>Seguridad de la Información</h1>
+                            </div>
                         </div>
-                            
 
-                        {auth.user ? (
-                                    <Link href={route('article.create')} className="text-sm text-gray-700 dark:text-gray-500 underline">
-                                        Agregar concepto
-                                    </Link>
-                                 ) : (
-                                    <>
-                                        <Link href={route('login')} className="text-sm text-gray-700 dark:text-gray-500 underline">
-                                            Log in
-                                        </Link>
-
-                                        <Link
-                                            href={route('register')}
-                                            className="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
-                                        >
-                                            Register
-                                        </Link>
-                                    </>
-                                 )}
-
-
-                        {/* Dropdown menu sm */}
-                        <div className="hidden sm:flex sm:items-center sm:ml-6">
+                        {/* Dropdown menu  */}
+                        <div className={(auth.user ? "hidden sm:flex": "hidden")+" sm:items-center sm:ml-6"}>
                             <div className="ml-3 relative">
                                 <Dropdown>
                                     <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm sm:text-lg leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {/* {auth.user ? 'Nombre de usuario' : 'No estás logeado'} */}
-
+                                                    {auth.user.name}
+        
                                                 <svg
                                                     className="ml-2 -mr-0.5 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +51,7 @@ export default function GlosarioLayout({ auth, header, children }) {
                                             </button>
                                         </span>
                                     </Dropdown.Trigger>
-
+        
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
                                         <Dropdown.Link href={route('logout')} method="post" as="button">
@@ -78,10 +60,26 @@ export default function GlosarioLayout({ auth, header, children }) {
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
+                        </div>  
+                        
+                        
+                        {/* Login and register buttons */}
+                        <div className={(auth.user ? 'hidden' : 'block')}>
+                            <Link href={route('login')} className="text-lg text-gray-700 dark:text-gray-700 underline">
+                                Iniciar sesión
+                            </Link>
+
+                            <Link
+                                href={route('register')}
+                                className="ml-4 text-lg text-gray-700 dark:text-gray-700 underline"
+                            >
+                                Registrarse
+                            </Link>
                         </div>
                         
+                        
                         {/* Dropdown menu base */}
-                        <div className="-mr-2 flex items-center sm:hidden">
+                        <div className={(auth.user ? 'block sm:hidden': 'hidden') + ' -mr-2  items-center'}>
                             <button
                                 onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
                                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
@@ -133,19 +131,6 @@ export default function GlosarioLayout({ auth, header, children }) {
                     </div>
                 </div>
             </nav>
-
-            
-            <header className="flex flex-row bg-white shadow justify-center content-center">
-                <form>
-                    <input
-                        className="p-3 border-gray-400 rounded-lg"
-                        type="text"
-                        placeholder="Buscar concepto"
-                        
-                    />
-                </form>
-            </header>
-           
 
             <main>{children}</main>
         </div>
