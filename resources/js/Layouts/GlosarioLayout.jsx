@@ -26,6 +26,14 @@ export default function GlosarioLayout({ auth, header, children }) {
 
                         {/* Dropdown menu  */}
                         <div className={(auth.user ? "hidden sm:flex": "hidden")+" sm:items-center sm:ml-6"}>
+                            <div className=''>
+                                <Link
+                                    href={route('article.create')}
+                                    className="ml-4 text-lg text-gray-700 dark:text-gray-700 underline"
+                                >
+                                    Nuevo concepto
+                                </Link>
+                            </div>
                             <div className="ml-3 relative">
                                 <Dropdown>
                                     <Dropdown.Trigger>
