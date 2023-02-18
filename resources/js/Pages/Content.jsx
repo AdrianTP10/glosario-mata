@@ -10,7 +10,7 @@ export default function Content({auth, errors, articles}) {
         >
             <Head title="Dashboard" />
             <div className='h-screen overflow-scroll '>
-                <header className=" mx-auto ">
+                {/* <header className=" mx-auto ">
                     <div className="flex justify-center flex-nowrap p-4">
                         <div className="flex  mb-3 ">
                             <div className="input-group relative flex items-stretch w-full mb-4">
@@ -23,18 +23,10 @@ export default function Content({auth, errors, articles}) {
                             </div>
                         </div>
                     </div>
-                    {/* <form>
-                        <input
-                            className="p-3 border-gray-400 rounded-lg"
-                            type="text"
-                            placeholder="Buscar concepto"
-                            
-                        />
-                    </form> */}
-                </header>
+                </header> */}
             
                
-                <div className='pb-24'>
+                <div className='pb-24 pt-6'>
                     {
                         articles.map((article) =>(
                             <Card key={article.id} article={article}/>

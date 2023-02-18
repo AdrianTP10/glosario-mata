@@ -9,18 +9,18 @@ export default function GlosarioLayout({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     
     return (
-        <div className="max-h-screen bg-gray-300 overflow-hidden">
+        <div className="max-h-screen bg-gray-200 overflow-hidden">
             
 
-            <nav className="bg-white border-b border-gray-100">
+            <nav className="bg-blue-500 border-b border-blue-400">
                 <div className="px-2 sm:px-4 lg:px-8 w-full">
                     <div className="flex  h-16  justify-between items-center">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-700" />
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-100" />
                                 </Link>
-                                <h1 className='p-3 text-base sm:text-2xl font-mono font-medium '>Seguridad de la Información</h1>
+                                <h1 className='p-3 text-base sm:text-2xl font-mono font-medium text-gray-100'>Seguridad de la Información</h1>
                             </div>
                         </div>
 
@@ -65,13 +65,13 @@ export default function GlosarioLayout({ auth, header, children }) {
                         
                         {/* Login and register buttons */}
                         <div className={(auth.user ? 'hidden' : 'block')}>
-                            <Link href={route('login')} className="text-lg text-gray-700 dark:text-gray-700 underline">
+                            <Link href={route('login')} className="text-lg text-gray-100 dark:text-gray-100 underline">
                                 Iniciar sesión
                             </Link>
 
                             <Link
                                 href={route('register')}
-                                className="ml-4 text-lg text-gray-700 dark:text-gray-700 underline"
+                                className="ml-4 text-lg text-gray-100 dark:text-gray-100 underline"
                             >
                                 Registrarse
                             </Link>

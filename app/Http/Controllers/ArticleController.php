@@ -38,8 +38,9 @@ class ArticleController extends Controller
     {
         //validamos los datos
         $validated = $request->validate([
-            'title' => 'required|string|max:191',
-            'description' => 'required|string|max:191',
+            'title' => 'required|string|max:80',
+            'description' => 'required|string',
+            'reference' => 'required|string',
             'author' => Auth::user()->name,
         ]);
         $article = Article::create($validated);

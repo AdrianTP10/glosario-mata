@@ -24,7 +24,7 @@ Route::get('/', function () {
     return Inertia::render('Content', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'articles' => Article::all(),
+        'articles' => DB::table('article')->orderBy('title')->get(),
     ]);
 })->name('dashboard');
 

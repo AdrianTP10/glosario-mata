@@ -9,6 +9,7 @@ function Form(props) {
     const { data, setData, post, proccesing, reset, errors } = useForm({
         title: "",
         description: "",
+        reference: "",
     });
 
     const submit = (e) => {
@@ -51,8 +52,18 @@ function Form(props) {
                       className="mb-3 block w-full border-gray-300 rounded-lg"
                       name="description"
                     />
-                   
                     <InputError message={errors.description} className="mt-2" />
+
+                    <InputLabel forInput={data.reference}>Referencia bibliográfica</InputLabel>
+                    <input 
+                      value={data.reference}
+                      onChange={e => setData('reference', e.target.value)}
+                      type='text'
+                      autoFocus
+                      className="mb-3 block w-full border-gray-300 rounded-lg"
+                      name="reference"
+                    />
+                    <InputError message={errors.reference} className="mt-2" />
 
                  
                     
