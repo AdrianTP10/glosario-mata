@@ -26,7 +26,7 @@ function Form(props) {
         >
             <Head title="Nuevo Artículo" />
 
-            <div className="py-12">
+            <div className="py-12 h-screen overflow-scroll">
                 <div className="max-w-2xl mx-auto">
                     <form onSubmit={submit}>
 
@@ -52,7 +52,7 @@ function Form(props) {
                         className="mb-3 block w-full border-gray-300 rounded-lg"
                         name="description"
                         /> */}
-                        <textarea id="message" rows="4" class="block p-2.5 w-full text-normal text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escriba el concepto aquí...">
+                        <textarea id="message" rows="4" className="block p-2.5 w-full text-normal text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escriba el concepto aquí...">
                         </textarea>
                         
                     

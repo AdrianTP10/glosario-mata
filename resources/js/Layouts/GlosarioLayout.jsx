@@ -17,10 +17,11 @@ export default function GlosarioLayout({ auth, header, children }) {
                     <div className="flex  h-16  justify-between items-center">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
+                                <Link href="/" className='flex items-center'>
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-100" />
+                                    <h1 className='p-3 text-base sm:text-2xl font-mono font-medium text-gray-100'>Seguridad de la Información</h1>
                                 </Link>
-                                <h1 className='p-3 text-base sm:text-2xl font-mono font-medium text-gray-100'>Seguridad de la Información</h1>
+                                
                             </div>
                         </div>
 
@@ -29,7 +30,7 @@ export default function GlosarioLayout({ auth, header, children }) {
                             <div className=''>
                                 <Link
                                     href={route('article.create')}
-                                    className="ml-4 text-lg text-gray-700 dark:text-gray-700 underline"
+                                    className="ml-4 text-lg text-gray-200 underline"
                                 >
                                     Nuevo concepto
                                 </Link>
